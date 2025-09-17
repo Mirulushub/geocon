@@ -10,7 +10,7 @@ const firebaseConfig = {
 };
 
 // Esta função retorna a configuração do Firebase
-module.exports = (req, res) => {
+export default = (req, res) => {
   // Define os cabeçalhos para permitir que o seu frontend acesse esta API
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
