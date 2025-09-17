@@ -302,28 +302,24 @@ print('teste')
 
         // Inicializar Firebase
     
-    let db; // Torne a variável `db` global ou acessível
+    // Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-    async function initializeFirebase() {
-        try {
-            const response = await fetch('/api/firebaseConfig');
-            const firebaseConfig = await response.json();
-            
-            firebase.initializeApp(firebaseConfig);
-            
-            // Atribua a instância do Firestore à variável `db`
-            db = firebase.firestore();
-            
-            console.log('Firebase e Firestore inicializados com sucesso!');
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyATDJcrI2bY7qebBkOuDXCFvvutqaPD4ag",
+  authDomain: "data-17e40.firebaseapp.com",
+  projectId: "data-17e40",
+  storageBucket: "data-17e40.firebasestorage.app",
+  messagingSenderId: "939327134528",
+  appId: "1:939327134528:web:639a7ccd578febb4f078a5"
+};
 
-            // Agora você pode chamar a função de salvar com segurança
-            // Exemplo:
-            // const dataToSave = { name: 'João', message: 'Olá, mundo!' };
-            // await saveToFirebase(dataToSave);
-        } catch (error) {
-            console.error('Erro na inicialização do Firebase:', error);
-        }
-    }
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);        
 
     async function saveToFirebase(data) {
         try {
